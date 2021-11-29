@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mkdir ./workspace
-cd ./workspace
+mkdir /root/workspace
+cd /root/workspace
 chmod -R a+w .
 
 # sentencepiece
