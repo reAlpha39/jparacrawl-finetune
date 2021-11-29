@@ -11,12 +11,12 @@ EXP_NAME=fine-tune
 SRC=ja
 TRG=en
 
-TRAIN_SRC=$PWD/corpus/spm/kyoto-train.$SRC
-TRAIN_TRG=$PWD/corpus/spm/kyoto-train.$TRG
-DEV_SRC=$PWD/corpus/spm/kyoto-dev.$SRC
-DEV_TRG=$PWD/corpus/spm/kyoto-dev.$TRG
-TEST_SRC=$PWD/corpus/spm/kyoto-test.$SRC
-TEST_TRG=$PWD/corpus/spm/kyoto-test.$TRG
+TRAIN_SRC=$PWD/corpus/spm/train.$SRC
+TRAIN_TRG=$PWD/corpus/spm/train.$TRG
+DEV_SRC=$PWD/corpus/spm/dev.$SRC
+DEV_TRG=$PWD/corpus/spm/dev.$TRG
+TEST_SRC=$PWD/corpus/spm/test.$SRC
+TEST_TRG=$PWD/corpus/spm/test.$TRG
 TEST_TRG_RAW=$PWD/corpus/dataset/test.$TRG
 
 SRC_VOCAB=$PWD/pretrained_model_$SRC$TRG/dict.$SRC.txt
