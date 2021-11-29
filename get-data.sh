@@ -1,11 +1,11 @@
 #!/bin/sh
 
 mkdir -p corpus
-# download KFTT
-wget http://www.phontron.com/kftt/download/kftt-data-1.0.tar.gz
-tar xzvf kftt-data-1.0.tar.gz
-rm kftt-data-1.0.tar.gz
-mv kftt-data-1.0 ./corpus
+# download Dataset
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet \--save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1NAtp079h9FpQppNIxFJH5sMnnhDcLWwp' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1NAtp079h9FpQppNIxFJH5sMnnhDcLWwp" -O dataset.tar.gz && rm -rf /tmp/cookies.txt
+tar xzvf dataset.tar.gz
+rm dataset.tar.gz
+mv dataset ./corpus
 
 # download sentencepiece model
 wget http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/release/1.0/spm_models/en-ja_spm.tar.gz

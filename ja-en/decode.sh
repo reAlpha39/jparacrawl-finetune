@@ -2,21 +2,22 @@
 export python3='ignore:semaphore_tracker:UserWarning'
 
 FAIRSEQ=/workspace/fairseq
+FAIRSEQ_CLI=$FAIRSEQ/fairseq_cli
 
 EXP_NAME=decode
 
 SRC=ja
 TRG=en
 
-TEST_SRC=$PWD/corpus/spm/kyoto-test.$SRC
-TEST_TRG=$PWD/corpus/spm/kyoto-test.$TRG
-TEST_TRG_RAW=$PWD/corpus/kftt-data-1.0/data/orig/kyoto-test.$TRG
+TEST_SRC=$PWD/corpus/spm/test.$SRC
+TEST_TRG=$PWD/corpus/spm/test.$TRG
+TEST_TRG_RAW=$PWD/corpus/dataset/test.$TRG
 
 SRC_VOCAB=$PWD/pretrained_model_$SRC$TRG/dict.$SRC.txt
 TRG_VOCAB=$PWD/pretrained_model_$SRC$TRG/dict.$TRG.txt
 SPM_MODEL=$PWD/corpus/enja_spm_models/spm.$TRG.nopretok.model
 
-MODEL_FILE=$PWD/pretrained_model_$SRC$TRG/base.pretrain.pt
+MODEL_FILE=$PWD/pretrained_model_$SRC$TRG/big.pretrain.pt
 
 CORPUS_DIR=$PWD/data
 DATA_DIR=$PWD/data-bin/$EXP_NAME
@@ -36,7 +37,7 @@ ln -s $TEST_TRG $TEST_PREFIX.$TRG
 ######################################
 # Preprocessing
 ######################################
-python3 $FAIRSEQ/preprocess.py \
+python3 $FAIRSEQ_CLI/preprocess.py \
     --source-lang $SRC \
     --target-lang $TRG \
     --testpref $TEST_PREFIX \
@@ -52,7 +53,7 @@ python3 $FAIRSEQ/preprocess.py \
 # decode
 B=`basename $TEST_SRC`
 
-python3 $FAIRSEQ/generate.py $DATA_DIR \
+python3 $FAIRSEQ_CLI/generate.py $DATA_DIR \
     --gen-subset test \
     --path $MODEL_FILE \
     --max-tokens 1000 \
