@@ -1,7 +1,7 @@
 #!/bin/bash
 export PYTHONWARNINGS='ignore:semaphore_tracker:UserWarning'
 
-FAIRSEQ=/workspace/fairseq
+FAIRSEQ=/root/workspace/fairseq
 FAIRSEQ_CLI=$FAIRSEQ/fairseq_cli
 
 SEED=1
@@ -88,7 +88,7 @@ python3 $FAIRSEQ_CLI/train.py $DATA_DIR \
     --save-interval 10000000000 \
     --validate-interval 1000000000 \
     --save-interval-updates 100 \
-    --keep-interval-updates 4 \
+    --keep-interval-updates 8 \
     --log-format simple \
     --log-interval 5 \
     --ddp-backend no_c10d \

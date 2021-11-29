@@ -1,7 +1,7 @@
 #!/bin/bash
 export python3='ignore:semaphore_tracker:UserWarning'
 
-FAIRSEQ=/workspace/fairseq
+FAIRSEQ=/root/workspace/fairseq
 FAIRSEQ_CLI=$FAIRSEQ/fairseq_cli
 
 EXP_NAME=decode

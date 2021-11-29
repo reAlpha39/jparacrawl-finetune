@@ -16,8 +16,8 @@ RUN apt-get -y install git cmake build-essential pkg-config libgoogle-perftools-
 WORKDIR /workspace
 
 # fairseq
-RUN git clone https://github.com/pytorch/fairseq && cd fairseq && \
-    git checkout c81fed46ac7868c6d80206ff71c6f6cfe93aee22 && \
+RUN git clone https://github.com/pytorch/fairseq && \
+    cd fairseq && \
     pip3 install --editable .
 
 
